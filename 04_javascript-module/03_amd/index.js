@@ -1,6 +1,6 @@
 (function () {
     require.config({
-        baseUrl: '',
+        baseUrl: './modules',
         path: {
             "bar": "./modules/bar",
             "foo": "./modules/foo"
