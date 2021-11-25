@@ -1,3 +1,5 @@
-var name = "cobe";
+(function () {
+    var age = "cobe";
 
-console.log(name);
+    console.log(age);
+})()

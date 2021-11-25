@@ -1,3 +1,9 @@
-var name = "why";
+var moduleBar = (function () {
+    var age = "小明";
+    console.log(age);
+    return {
+        age
+    }
+    
+})()
 
-console.log(name);
