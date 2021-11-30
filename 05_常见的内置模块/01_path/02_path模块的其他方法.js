@@ -23,3 +23,14 @@ console.log(filepath1);
 
 const filepath2 = path.resolve(basePath,filename);
 console.log(filepath2);
+
+const basePath2 = 'User/why';
+const basename2 = '/test/abc.txt';
+
+const filepath3 = path.resolve(basePath2,basename2);///test/abc.txt
+console.log(filepath3);
+
+const basename3 = './test/abc.txt';
+
+const filepath4 = path.resolve(basePath2,basename3);///Users/mininglamp/Desktop/company-project/node/node/05_常见的内置模块/01_path/User/why/test/abc.txt
+console.log(filepath4);
