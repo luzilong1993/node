@@ -1,6 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
+const log = require('./log')
+
 const ejs = require('ejs');
 
 // 编译ejs模版
@@ -20,6 +22,7 @@ const compile = (templatePath, data) => {
 // 写入文件
 const writeToFile = (path, content) => {
     if (fs.existsSync(path)) {
+        log.error("the file already exists~")
         return;
     }
     return fs.promises.writeFile(path, content);

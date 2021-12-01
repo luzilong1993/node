@@ -7,10 +7,11 @@ const open = require('open');
 const { vueRepo } = require('../config/repo-config');
 const { commandSpawn } = require('../utils/terminal');
 const { compile, writeToFile, createdir } = require('../utils/utils');
+const log = require('../utils/log');
 
 // 添加项目action
 const createProjectAction = async (project, other) => {
-    console.log('%cwating~~~', 'color:#ff0000');
+    log.wating('helps you create your project, please wait a moment~')
     // 1. clone项目
     await download(vueRepo, project, { clone: true });
     // 2. 执行npm install
