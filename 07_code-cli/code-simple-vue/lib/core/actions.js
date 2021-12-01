@@ -1,11 +1,12 @@
 const { promisify } = require('util');
+const path = require('path');
 
 const download = promisify(require('download-git-repo'));
 const open = require('open');
 
 const { vueRepo } = require('../config/repo-config');
 const { commandSpawn } = require('../utils/terminal');
-const { compile } = require('../utils/utils');
+const { compile, writeToFile, createdir } = require('../utils/utils');
 
 // 添加项目action
 const createProjectAction = async (project, other) => {
@@ -21,16 +22,39 @@ const createProjectAction = async (project, other) => {
     open('http://localhost:8080');
 }
 
+// 编辑模版提出来
+const handleCompile = async (name, dest, template, filename) => {
+    // 1.模版引擎路径
+    const templatePath = path.resolve(__dirname, template);
+    const result = await compile(templatePath, { name, lowerName: name.toLowerCase() });
+
+    // 写入文件
+    createdir(dest);
+    const targetPath = path.resolve(dest, filename);
+    writeToFile(targetPath, result);
+}
+
 // 添加组件的action
 const addCompAction = async (name, dest) => {
-    // 编译ejs模版 result
-    const result = await compile('vue-component.ejs', { name, lowerName: name.toLowerCase() });
-    
-    // 3.将result放入到.vue中
-    // 4.放到对应的文件夹中
+    handleCompile(name, dest, '../template/vue-component.ejs', `${name}.vue`);
+}
+
+
+// 添加page和route
+const addPageAndRoute = async (name, dest) => {
+    addCompAction(name,dest);
+    handleCompile(name, dest, '../template/vue-router.ejs', 'router.js');
+}
+
+// 添加store
+const addStore = async (name,dest) => {
+    handleCompile(name, dest, '../template/vue-store.ejs', 'store.js');
+    handleCompile(name, dest, '../template/vue-types.ejs', 'types.js');
 }
 
 module.exports = {
     createProjectAction,
-    addCompAction
+    addCompAction,
+    addPageAndRoute,
+    addStore
 }

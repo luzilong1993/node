@@ -13,8 +13,7 @@ const helpOptions = () => {
         console.log(' other options~');
     })
 
-    // 获取传递的参数
-    const options = program.opts();
+    
     // console.log(options.destination);
 }
 

@@ -10,7 +10,6 @@ const commandSpawn = (...args) => {
             resolve()
         })
     })
-
 }
 
 module.exports = {
