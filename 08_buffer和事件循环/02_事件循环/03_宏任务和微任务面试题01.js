@@ -35,3 +35,13 @@ new Promise(function (resolve) {
 }).then(function () {
     console.log('then3');
 })
+
+// pr1
+// 2
+// then1
+// queueMicrotask1
+// then3
+// set1
+// then2
+// then4
+// set2
