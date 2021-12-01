@@ -36,20 +36,20 @@ const handleCompile = async (name, dest, template, filename) => {
 
 // 添加组件的action
 const addCompAction = async (name, dest) => {
-    handleCompile(name, dest, '../template/vue-component.ejs', `${name}.vue`);
+    handleCompile(name, dest, '../templates/vue-component.ejs', `${name}.vue`);
 }
 
 
 // 添加page和route
 const addPageAndRoute = async (name, dest) => {
     addCompAction(name,dest);
-    handleCompile(name, dest, '../template/vue-router.ejs', 'router.js');
+    handleCompile(name, dest, '../templates/vue-router.ejs', 'router.js');
 }
 
 // 添加store
 const addStore = async (name,dest) => {
-    handleCompile(name, dest, '../template/vue-store.ejs', 'store.js');
-    handleCompile(name, dest, '../template/vue-types.ejs', 'types.js');
+    handleCompile(name, dest, '../templates/vue-store.ejs', 'store.js');
+    handleCompile(name, dest, '../templates/vue-types.ejs', 'types.js');
 }
 
 module.exports = {

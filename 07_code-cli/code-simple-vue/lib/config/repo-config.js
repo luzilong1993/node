@@ -1,4 +1,4 @@
-let vueRepo = 'direct:https://github.com/coderwhy/hy-vue-temp.git';
+let vueRepo = 'direct:https://github.com/luzilong1993/vue-temp.git';
 
 module.exports = {
     vueRepo,
