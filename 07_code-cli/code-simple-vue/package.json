@@ -9,9 +9,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "vue",
+    "code-simple",
+    "code"
+  ],
+  "author": "luzilong1993",
+  "license": "MIT",
+  "homepage": "https://github.com/luzilong1993/node/tree/master/07_code-cli/code-simple-vue",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luzilong1993/node/tree/master/07_code-cli/code-simple-vue"
+  },
   "dependencies": {
     "chalk": "^5.0.0",
     "commander": "^8.3.0",
