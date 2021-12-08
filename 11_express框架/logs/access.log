@@ -1,0 +1,2 @@
+::1 - - [08/Dec/2021:08:33:11 +0000] "POST /home HTTP/1.1" 404 144 "-" "PostmanRuntime/7.28.4"
+::1 - - [08/Dec/2021:08:33:26 +0000] "GET /home HTTP/1.1" 200 - "-" "PostmanRuntime/7.28.4"
