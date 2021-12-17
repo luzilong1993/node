@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
     port: 3306,
     database: 'coderhub',
     user: 'root',
-    password: 'lu942146'
+    password: ''
 })
 
 // 2.直接执行sql语句

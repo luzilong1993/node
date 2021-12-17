@@ -6,7 +6,7 @@ const connections = mysql.createPool({
     port: 3306,
     database: 'coderhub',
     user: 'root',
-    password: 'lu942146',
+    password: '',
     connectionLimit: 10 //最多建立几个连接
 })
 
