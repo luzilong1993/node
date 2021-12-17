@@ -1,6 +1,8 @@
 const errorTypes = require('../constants/error-types');
 const service = require('../service/user.service');
 
+const md5Password = require('../utils/password-handle');
+
 const verifyUser = async (ctx, next) => {
     // 1.先获取用户名和密码
     const { name, password } = ctx.request.body;
@@ -19,9 +21,17 @@ const verifyUser = async (ctx, next) => {
         return ctx.app.emit('error', error, ctx);
     }
 
-    await next()
+    await next();
+}
+
+const handlePassword = async (ctx,next) => {
+    const { password } = ctx.request.body;
+    // 对密码进行加密
+    ctx.request.body.password = md5Password(password);
+    await next();
 }
 
 module.exports = {
-    verifyUser
+    verifyUser,
+    handlePassword
 }
