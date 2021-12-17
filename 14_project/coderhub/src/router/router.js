@@ -1,5 +1,11 @@
-const userRouter = require('./user.router');
+const fs = require('fs');
 
-module.exports = {
-    userRouter
+const useRoutes = function () {
+    fs.readdirSync(__dirname).forEach(file => {
+        if (file === 'router.js') return;
+        const router = require(`./${file}`);
+        this.use(router.routes());
+        this.use(router.allowedMethods());
+    })
 }
+module.exports = useRoutes;
